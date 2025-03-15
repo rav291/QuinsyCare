@@ -11,18 +11,9 @@ import SubmitButton from '../SubmitButton'
 import { UserFormValidation } from '@/lib/validation'
 import { createUser } from '@/lib/actions/patient.actions'
 import { useRouter } from 'next/navigation'
+import { FormFieldType } from './PatientForm'
 
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  SELECT = "select",
-  DATE_PICKER = "datePicker",
-  CHECKBOX = "checkbox",
-  PHONE_INPUT = "phoneInput",
-  SKELETON = "skeleton",
-}
-
-const PatientForm = () => {
+const RegisterForm = ({ user: { user: User } }) => {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
 
@@ -51,10 +42,13 @@ const PatientForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
-        <section className="mb-12 space-y-4">
-          <h1 className='header'>Hi there 👋</h1>
-          <p className='text-dark-700'>Schedule your first appointment</p>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-12 flex-1">
+        <section className="space-y-4">
+          <h1 className='header'>Welcome 👋</h1>
+          <p className='text-dark-700'>Let us know more about yourself.</p>
+        </section>
+        <section className='space-y-6'>
+          <p className='sub-header'>Personal Information</p>
         </section>
         <CustomFormField
           fieldType={FormFieldType.INPUT}
@@ -65,23 +59,6 @@ const PatientForm = () => {
           iconSrc='/assets/icons/user.svg'
           iconAlt='user'
         />
-        <CustomFormField
-          fieldType={FormFieldType.INPUT}
-          control={form.control}
-          name="email"
-          label="Email"
-          placeholder="petemitchell@gmail.com"
-          iconSrc="/assets/icons/email.svg"
-          iconAlt="email"
-        />
-
-        <CustomFormField
-          fieldType={FormFieldType.PHONE_INPUT}
-          control={form.control}
-          name="phone"
-          label="Phone number"
-          placeholder="(+91) 9112173314"
-        />
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
@@ -89,4 +66,4 @@ const PatientForm = () => {
   )
 }
 
-export default PatientForm
+export default RegisterForm
