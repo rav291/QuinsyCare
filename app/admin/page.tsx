@@ -4,9 +4,9 @@ import { getRecentAppointments } from '@/lib/actions/appointment.actions'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { columns } from '@/components/table/Columns'
+import { Columns } from '@/components/table/Columns';
 
-const Admin = async () => { 
+const Admin = async () => {
   const appointments = await getRecentAppointments();
 
   return (
@@ -52,7 +52,7 @@ const Admin = async () => {
           />
         </section>
 
-        <DataTable columns={columns} data={appointments.documents} />
+        <DataTable columns={Columns} data={appointments.documents} />
       </main>
     </div>
   )

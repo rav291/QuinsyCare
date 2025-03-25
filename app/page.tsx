@@ -1,6 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
-import { Button } from "@/components/ui/button";
 import PatientForm from "@/components/forms/PatientForm";
 import Link from "next/link";
 import PassKeyModal from "@/components/PassKeyModal";
