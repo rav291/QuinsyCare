@@ -1,10 +1,12 @@
-import { DataTable } from '@/components/table/DataTable'
 import { StatCard } from '@/components/StatCard'
 import { getRecentAppointments } from '@/lib/actions/appointment.actions'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { Columns } from '@/components/table/Columns';
+import { DataTable } from '@/components/table/DataTable'
+import { Columns } from '../../components/table/Columns';
+
+
 
 const Admin = async () => {
   const appointments = await getRecentAppointments();
